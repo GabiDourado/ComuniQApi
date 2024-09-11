@@ -14,7 +14,7 @@
 
         public int UsuarioTelefone { get; set; }
 
-        public int UsuarioCPF { get; set; }
+        public string UsuarioCPF { get; set; } = string.Empty;
 
         public int UsuarioCEP { get; set; }
 
