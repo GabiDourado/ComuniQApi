@@ -50,7 +50,7 @@ namespace ComuniQApi.Repositorios
 
         }
 
-        public async Task<bool> DeleteBairro(int id)
+        public async Task<bool> DeleteBairros(int id)
         {
             BairrosModel bairros = await GetById(id);
             if (bairros == null)
