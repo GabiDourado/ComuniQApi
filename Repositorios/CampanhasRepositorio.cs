@@ -40,6 +40,10 @@ namespace ComuniQApi.Repositorios
             else
             {
                 campanhas.CampanhaTitulo = campanha.CampanhaTitulo;
+                campanhas.CampanhaMidia = campanha.CampanhaMidia;
+                campanhas.CampanhaDescricao = campanha.CampanhaDescricao;
+                campanhas.TipoCampanhaId = campanha.TipoCampanhaId;
+                campanhas.CidadeId = campanha.CidadeId;
                 _dbContext.Campanha.Update(campanhas);
                 await _dbContext.SaveChangesAsync();
             }

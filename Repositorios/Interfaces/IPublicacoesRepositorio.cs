@@ -12,6 +12,6 @@ namespace ComuniQApi.Repositorios.Interfaces
 
         Task<PublicacoesModel> UpdatePublicacao(PublicacoesModel publicacao, int id);
 
-        Task<bool> DeleteUsuario(int id);
+        Task<bool> DeletePublicacao(int id);
     }
 }
