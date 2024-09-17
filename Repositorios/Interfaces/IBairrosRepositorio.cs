@@ -12,6 +12,6 @@ namespace ComuniQApi.Repositorios.Interfaces
 
         Task<BairrosModel> UpdateBairro(BairrosModel bairro, int id);
 
-        Task<bool> DeleteUsuario(int id);
+        Task<bool> DeleteBairros(int id);
     }
 }
