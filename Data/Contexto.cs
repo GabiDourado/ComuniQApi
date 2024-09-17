@@ -19,6 +19,7 @@ namespace ComuniQApi.Data
         public DbSet<BairrosModel> Bairro { get; set; }
         public DbSet<PublicacoesModel> Publicacao { get; set; }
         public DbSet<ComentariosModel> Comentario { get; set; }
+        public DbSet<EstadosModel> Estado { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,6 +33,7 @@ namespace ComuniQApi.Data
             modelBuilder.ApplyConfiguration(new BairrosMap());
             modelBuilder.ApplyConfiguration(new PublicacoesMap());
             modelBuilder.ApplyConfiguration(new ComentariosMap());
+            modelBuilder.ApplyConfiguration(new EstadosMap());
             base.OnModelCreating(modelBuilder);
         }
     }

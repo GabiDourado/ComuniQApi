@@ -58,7 +58,7 @@ namespace ComuniQApi.Repositorios
                 throw new Exception("Não encontrada.");
             }
 
-            _dbContext.Bairros.Remove(bairros);
+            _dbContext.Bairro.Remove(bairros);
             await _dbContext.SaveChangesAsync();
             return true;
         }
