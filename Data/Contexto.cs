@@ -17,7 +17,8 @@ namespace ComuniQApi.Data
         public DbSet<CampanhasMap> Campanha { get; set; }
         public DbSet<TipoCampanhasMap> TipoCamapanha { get; set; }
         public DbSet<BairrosMap> Bairros { get; set; }
-        public DbSet<PublicacoesMap> Publicacoes { get; set; }
+        public DbSet<PublicacoesMap> Publicacao { get; set; }
+        public DbSet<ComentariosMap> Comentario { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -30,6 +31,7 @@ namespace ComuniQApi.Data
             modelBuilder.ApplyConfiguration(new TipoCampanhasMap());
             modelBuilder.ApplyConfiguration(new BairrosMap());
             modelBuilder.ApplyConfiguration(new PublicacoesMap());
+            modelBuilder.ApplyConfiguration(new ComentariosMap());
             base.OnModelCreating(modelBuilder);
         }
     }
