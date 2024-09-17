@@ -10,8 +10,8 @@ namespace ComuniQApi.Repositorios.Interfaces
 
         Task<CampanhasModel> InsertCampanha(CampanhasModel campanha);
 
-        Task<CampanhasModel> UpdateCampanha(UsuariosModel campanha, int id);
+        Task<CampanhasModel> UpdateCampanha(CampanhasModel campanha, int id);
 
-        Task<bool> DeleteUsuario(int id);
+        Task<bool> DeleteCampanha(int id);
     }
 }

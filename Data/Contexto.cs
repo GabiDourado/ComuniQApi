@@ -14,11 +14,11 @@ namespace ComuniQApi.Data
         public DbSet<DenunciasModel> Denuncia { get; set; }
         public DbSet<TipoDenunciasModel> TipoDenuncia { get; set; }
         public DbSet<CidadesModel> Cidade { get; set; }
-        public DbSet<CampanhasMap> Campanha { get; set; }
-        public DbSet<TipoCampanhasMap> TipoCamapanha { get; set; }
-        public DbSet<BairrosMap> Bairros { get; set; }
-        public DbSet<PublicacoesMap> Publicacao { get; set; }
-        public DbSet<ComentariosMap> Comentario { get; set; }
+        public DbSet<CampanhasModel> Campanha { get; set; }
+        public DbSet<TipoCampanhasModel> TipoCamapanha { get; set; }
+        public DbSet<BairrosModel> Bairros { get; set; }
+        public DbSet<PublicacoesModel> Publicacao { get; set; }
+        public DbSet<ComentariosModel> Comentario { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
