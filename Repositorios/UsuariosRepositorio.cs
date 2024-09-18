@@ -57,15 +57,22 @@ namespace ComuniQApi.Repositorios
             else
             {
                 usuarios.UsuarioNome = usuario.UsuarioNome;
-                usuarios.UsuarioTelefone = usuario.UsuarioTelefone;
+                usuarios.UsuarioSobrenome = usuario.UsuarioSobrenome;
+                usuarios.UsuarioApelido = usuario.UsuarioApelido;
                 usuarios.UsuarioEmail = usuario.UsuarioEmail;
+                usuarios.UsuarioTelefone = usuario.UsuarioTelefone;
+                usuarios.UsuarioCPF = usuario.UsuarioCPF;
+                usuarios.UsuarioCEP = usuario.UsuarioCEP;
+                usuarios.UsuarioCidade = usuario.UsuarioCidade;
+                usuarios.UsuarioBairro = usuario.UsuarioBairro;
+                usuarios.UsuarioEstado = usuario.UsuarioEstado;
                 usuarios.UsuarioSenha = usuario.UsuarioSenha;
                 _dbContext.Usuario.Update(usuarios);
                 await _dbContext.SaveChangesAsync();
             }
             return usuarios;
 
-        }
+        } 
 
         public async Task<bool> DeleteUsuario(int id)
         {
