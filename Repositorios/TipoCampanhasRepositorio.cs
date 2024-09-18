@@ -16,17 +16,17 @@ namespace ComuniQApi.Repositorios
 
         public async Task<List<TipoCampanhasModel>> GetAll()
         {
-            return await _dbContext.TipoCamapanha.ToListAsync();
+            return await _dbContext.TipoCampanha.ToListAsync();
         }
 
         public async Task<TipoCampanhasModel> GetById(int id)
         {
-            return await _dbContext.TipoCamapanha.FirstOrDefaultAsync(x => x.TipoCampanhaId == id);
+            return await _dbContext.TipoCampanha.FirstOrDefaultAsync(x => x.TipoCampanhaId == id);
         }
 
         public async Task<TipoCampanhasModel> InsertTipoCampanha(TipoCampanhasModel tipoCampanha)
         {
-            await _dbContext.TipoCamapanha.AddAsync(tipoCampanha);
+            await _dbContext.TipoCampanha.AddAsync(tipoCampanha);
             await _dbContext.SaveChangesAsync();
             return tipoCampanha;
         }
@@ -41,7 +41,7 @@ namespace ComuniQApi.Repositorios
             else
             {
                 tipoCampanhas.TipoCampanhaNome = tipoCampanha.TipoCampanhaNome;
-                _dbContext.TipoCamapanha.Update(tipoCampanhas);
+                _dbContext.TipoCampanha.Update(tipoCampanhas);
                 await _dbContext.SaveChangesAsync();
             }
             return tipoCampanhas;
@@ -56,7 +56,7 @@ namespace ComuniQApi.Repositorios
                 throw new Exception("Não encontrada.");
             }
 
-            _dbContext.TipoCamapanha.Remove(tipoCampanhas);
+            _dbContext.TipoCampanha.Remove(tipoCampanhas);
             await _dbContext.SaveChangesAsync();
             return true;
         }

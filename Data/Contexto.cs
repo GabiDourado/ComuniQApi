@@ -15,7 +15,7 @@ namespace ComuniQApi.Data
         public DbSet<TipoDenunciasModel> TipoDenuncia { get; set; }
         public DbSet<CidadesModel> Cidade { get; set; }
         public DbSet<CampanhasModel> Campanha { get; set; }
-        public DbSet<TipoCampanhasModel> TipoCamapanha { get; set; }
+        public DbSet<TipoCampanhasModel> TipoCampanha { get; set; }
         public DbSet<BairrosModel> Bairro { get; set; }
         public DbSet<PublicacoesModel> Publicacao { get; set; }
         public DbSet<ComentariosModel> Comentario { get; set; }
