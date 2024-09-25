@@ -10,7 +10,7 @@ namespace ComuniQApi.Repositorios.Interfaces
 
         Task<UsuariosModel> InsertUsuario(UsuariosModel usuario);
 
-        Task<bool> Login(string email, string password);
+        Task<UsuariosModel> Login(string email, string password);
 
         Task<UsuariosModel> UpdateUsuario(UsuariosModel usuario, int id);
 

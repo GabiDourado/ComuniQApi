@@ -41,6 +41,7 @@ namespace ComuniQApi.Repositorios
             {
                 comentarios.ComentarioTexto = comentario.ComentarioTexto;
                 comentarios.UsuarioId = comentario.UsuarioId;
+                comentarios.PublicacaoId = comentario.PublicacaoId;
                 _dbContext.Comentario.Update(comentarios);
                 await _dbContext.SaveChangesAsync();
             }

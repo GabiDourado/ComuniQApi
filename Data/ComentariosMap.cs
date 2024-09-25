@@ -11,6 +11,7 @@ namespace ComuniQApi.Data
             builder.HasKey(x => x.ComentarioId);
             builder.Property(x => x.ComentarioTexto).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioId).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.PublicacaoId).IsRequired().HasMaxLength(255);
         }
     }
 }
