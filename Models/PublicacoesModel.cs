@@ -6,8 +6,6 @@
 
         public string PublicacaoTitulo { get; set; } = string.Empty;
 
-        public int UsuarioId { get; set; }
-
         public string PublicacaoMidia { get; set; } = string.Empty;
 
         public string PublicacaoDescricao { get; set; } = string.Empty;

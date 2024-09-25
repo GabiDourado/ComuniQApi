@@ -27,6 +27,8 @@ builder.Services.AddScoped<IPublicacoesRepositorio, PublicacoesRepositorio>();
 builder.Services.AddScoped<ITipoCampanhasRepositorio, TipoCampanhasRepositorio>();
 builder.Services.AddScoped<ITipoDenunciasRepositorio, TipoDenunciasRepositorio>();
 builder.Services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
+builder.Services.AddScoped<ITipoPerfisRepositorio, TipoPerfisRepositorio>();
+builder.Services.AddScoped<IPublicacaoUsuariosRepositorio, PublicacaoUsuariosRepositorio>();
 
 
 builder.Services.AddCors(options =>

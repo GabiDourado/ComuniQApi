@@ -30,19 +30,19 @@ namespace ComuniQApi.Repositorios
             await _dbContext.SaveChangesAsync();
             return usuario;
         }
-
-        public async Task<bool> Login(string email, string password)
+        public async Task<UsuariosModel> Login(string email, string password)
         {
 
-            var result = await _dbContext.Usuario.FirstOrDefaultAsync(x => x.UsuarioEmail == email && x.UsuarioSenha == password);
+            UsuariosModel result;
+            result = await _dbContext.Usuario.FirstOrDefaultAsync(x => x.UsuarioEmail == email && x.UsuarioSenha == password);
 
             if (result != null)
             {
-                return true;
+                return result;
             }
             else
             {
-                return false;
+                return result;
             }
 
         }

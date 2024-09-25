@@ -33,10 +33,10 @@ namespace ComuniQApi.Controllers
             return Ok(usuario);
         }
         [HttpPost("Login")]
-        public async Task<ActionResult<bool>> Login([FromBody] UsuariosModel usuarioModel)
+        public async Task<ActionResult<UsuariosModel>> Login([FromBody] UsuariosModel usuarioModel)
         {
             var usuario = await _usuariosRepositorio.Login(usuarioModel.UsuarioEmail, usuarioModel.UsuarioSenha);
-            if(usuario)
+            if(usuario != null)
                 return Ok(usuario);
             else
                 return BadRequest(false);
