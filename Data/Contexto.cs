@@ -20,6 +20,7 @@ namespace ComuniQApi.Data
         public DbSet<PublicacoesModel> Publicacao { get; set; }
         public DbSet<ComentariosModel> Comentario { get; set; }
         public DbSet<EstadosModel> Estado { get; set; }
+        public DbSet<TipoPerfisModel> TipoPerfil { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -34,6 +35,7 @@ namespace ComuniQApi.Data
             modelBuilder.ApplyConfiguration(new PublicacoesMap());
             modelBuilder.ApplyConfiguration(new ComentariosMap());
             modelBuilder.ApplyConfiguration(new EstadosMap());
+            modelBuilder.ApplyConfiguration(new TipoPerfisMap());
             base.OnModelCreating(modelBuilder);
         }
     }
