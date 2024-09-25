@@ -41,7 +41,6 @@ namespace ComuniQApi.Repositorios
             else
             {
                 publicacoes.PublicacaoTitulo = publicacao.PublicacaoTitulo;
-                publicacoes.UsuarioId = publicacao.UsuarioId;
                 publicacoes.PublicacaoMidia = publicacao.PublicacaoMidia;
                 publicacoes.PublicacaoDescricao = publicacao.PublicacaoDescricao;
                 publicacoes.BairroId = publicacao.BairroId;
