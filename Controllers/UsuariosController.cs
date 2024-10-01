@@ -40,7 +40,6 @@ namespace ComuniQApi.Controllers
                 return Ok(usuario);
             else
                 return BadRequest(false);
-
         }
 
         [HttpPut("UpdateUsuario/{id:int}")]
@@ -48,6 +47,12 @@ namespace ComuniQApi.Controllers
         {
             usuarioModel.UsuarioId = id;
             UsuariosModel usuario = await _usuariosRepositorio.UpdateUsuario(usuarioModel, id);
+            return Ok(usuario);
+        }
+        [HttpPost("RecuperarSenha")]
+        public async Task<ActionResult<UsuariosModel>> RecuperarSenha(string email, string novaSenha)
+        {            
+            UsuariosModel usuario = await _usuariosRepositorio.RecuperarSenha(email, novaSenha);
             return Ok(usuario);
         }
         [HttpDelete("DeleteUsuario/{id:int}")]

@@ -13,6 +13,7 @@ namespace ComuniQApi.Repositorios.Interfaces
         Task<UsuariosModel> Login(string email, string password);
 
         Task<UsuariosModel> UpdateUsuario(UsuariosModel usuario, int id);
+        Task<UsuariosModel> RecuperarSenha(string email, string novaSenha);
 
         Task<bool> DeleteUsuario(int id);
     }

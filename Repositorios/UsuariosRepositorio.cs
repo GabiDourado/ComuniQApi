@@ -72,7 +72,25 @@ namespace ComuniQApi.Repositorios
             }
             return usuarios;
 
-        } 
+        }
+
+        //tenho que pegar o id a partir do email colocado pelo usuário, para alterar a senha.
+        public async Task<UsuariosModel> RecuperarSenha(string email, string novaSenha)
+        {
+            UsuariosModel usuarios = await _dbContext.Usuario.FirstOrDefaultAsync(x => x.UsuarioEmail == email);
+            if (usuarios == null)
+            {
+                throw new Exception("Não encontrado.");
+            }
+            else
+            {
+                usuarios.UsuarioSenha = novaSenha;
+                _dbContext.Usuario.Update(usuarios);
+                await _dbContext.SaveChangesAsync();
+            }
+            return usuarios;
+
+        }
 
         public async Task<bool> DeleteUsuario(int id)
         {
