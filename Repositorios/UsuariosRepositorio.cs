@@ -64,9 +64,11 @@ namespace ComuniQApi.Repositorios
                 usuarios.UsuarioCPF = usuario.UsuarioCPF;
                 usuarios.UsuarioCEP = usuario.UsuarioCEP;
                 usuarios.UsuarioCidade = usuario.UsuarioCidade;
-                usuarios.UssuarioBairro = usuario.UssuarioBairro;
+                usuarios.UsuarioBairro = usuario.UsuarioBairro;
                 usuarios.UsuarioEstado = usuario.UsuarioEstado;
                 usuarios.UsuarioSenha = usuario.UsuarioSenha;
+                usuarios.UsuarioFoto = usuario.UsuarioFoto;
+                usuarios.TipoPerfilId = usuario.TipoPerfilId;
                 _dbContext.Usuario.Update(usuarios);
                 await _dbContext.SaveChangesAsync();
             }

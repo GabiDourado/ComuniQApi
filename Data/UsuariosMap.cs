@@ -17,7 +17,7 @@ namespace ComuniQApi.Data
             builder.Property(x => x.UsuarioCPF).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioCEP).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioCidade).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.UssuarioBairro).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.UsuarioBairro).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioEstado).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioSenha).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioFoto).IsRequired();

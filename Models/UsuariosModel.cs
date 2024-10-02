@@ -20,7 +20,7 @@
 
         public string UsuarioCidade { get; set; } = string.Empty;
 
-        public string UssuarioBairro { get; set; } = string.Empty;
+        public string UsuarioBairro { get; set; } = string.Empty;
 
         public string UsuarioEstado { get; set; } = string.Empty;
 
