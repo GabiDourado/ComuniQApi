@@ -20,6 +20,8 @@ namespace ComuniQApi.Data
             builder.Property(x => x.UssuarioBairro).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioEstado).IsRequired().HasMaxLength(255);
             builder.Property(x => x.UsuarioSenha).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.UsuarioFoto).IsRequired();
+            builder.Property(x => x.TipoPerfilId).IsRequired().HasMaxLength(255);
         }
     }
 }
