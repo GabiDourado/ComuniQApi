@@ -6,7 +6,7 @@
 
         public string PublicacaoTitulo { get; set; } = string.Empty;
 
-        public string PublicacaoMidia { get; set; } = string.Empty;
+        public byte[]? PublicacaoMidia { get; set; } 
 
         public string PublicacaoDescricao { get; set; } = string.Empty;
 

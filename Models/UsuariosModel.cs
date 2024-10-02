@@ -26,6 +26,10 @@
 
         public string UsuarioSenha { get; set; } = string.Empty;
 
+        public byte[]? UsuarioFoto { get; set; }
+
+        public int TipoPerfilId { get; set; }
+
         public static implicit operator List<object>(UsuariosModel v)
         {
             throw new NotImplementedException();
