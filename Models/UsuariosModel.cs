@@ -12,11 +12,11 @@
 
         public string UsuarioEmail { get; set; } = string.Empty;
 
-        public int UsuarioTelefone { get; set; }
+        public string UsuarioTelefone { get; set; } = string.Empty;
 
         public string UsuarioCPF { get; set; } = string.Empty;
 
-        public int UsuarioCEP { get; set; }
+        public string UsuarioCEP { get; set; } = string.Empty;
 
         public string UsuarioCidade { get; set; } = string.Empty;
 
