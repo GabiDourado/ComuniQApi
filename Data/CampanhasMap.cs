@@ -10,7 +10,7 @@ namespace ComuniQApi.Data
         {
             builder.HasKey(x => x.CampanhaId);
             builder.Property(x => x.CampanhaTitulo).IsRequired().HasMaxLength(255);
-            builder.Property(x => x.CampanhaMidia).IsRequired();
+            builder.Property(x => x.CampanhaMidia);
             builder.Property(x => x.CampanhaDescricao).IsRequired().HasMaxLength(255);
             builder.Property(x => x.CampanhaDescricao).IsRequired().HasMaxLength(255);
             builder.Property(x => x.TipoCampanhaId).IsRequired().HasMaxLength(255);
