@@ -26,7 +26,7 @@
 
         public string UsuarioSenha { get; set; } = string.Empty;
 
-        public byte[]? UsuarioFoto { get; set; }
+        public string? UsuarioFoto { get; set; } = string.Empty;
 
         public int TipoPerfilId { get; set; }
 
