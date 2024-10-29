@@ -6,7 +6,7 @@
 
         public string CampanhaTitulo { get; set; } = string.Empty;
 
-        public string CampanhaMidia { get; set; } = string.Empty;
+        public string? CampanhaMidia { get; set; } = string.Empty;
 
         public string CampanhaDescricao { get; set; } = string.Empty;
 
