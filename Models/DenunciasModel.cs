@@ -4,7 +4,7 @@
     {
         public int DenunciaId { get; set; }
         public string DenunciaTitulo { get; set; } = string.Empty;
-        public byte[]? DenunciaMidia { get; set; }
+        public string DenunciaMidia { get; set; } = string.Empty;
         public string DenunciaDescricao { get; set; } = string.Empty;
         public int TipoDenunciaId { get; set; }
         public int BairroId { get; set; }
