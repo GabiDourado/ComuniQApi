@@ -16,6 +16,7 @@ namespace ComuniQApi.Data
             builder.Property(x => x.TipoCampanhaId).IsRequired().HasMaxLength(255);
             builder.Property(x => x.TipoCampanhaId).IsRequired().HasMaxLength(255);
             builder.Property(x => x.CidadeId).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.UsuarioId).IsRequired();
         }
     }
 }

@@ -4,7 +4,9 @@ namespace ComuniQApi.Repositorios.Interfaces
 {
     public interface IComentariosRepositorio
     {
-        Task<List<ComentariosModel>> GetAll();
+        Task<List<ComentarioCompleto>> GetAll();
+
+        Task<ComentarioCompleto> GetComentario(int id);
 
         Task<ComentariosModel> GetById(int id);
 

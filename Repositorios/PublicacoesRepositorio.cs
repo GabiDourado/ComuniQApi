@@ -14,9 +14,56 @@ namespace ComuniQApi.Repositorios
             _dbContext = dbContext;
         }
 
-        public async Task<List<PublicacoesModel>> GetAll()
+        public async Task<List<PublicacaoCompleta>> GetAll()
         {
-            return await _dbContext.Publicacao.ToListAsync();
+            List<PublicacaoCompleta> publicacoes = await _dbContext.Publicacao
+                .Join(_dbContext.Usuario,
+                      publicacao => publicacao.UsuarioId,
+                      usuario => usuario.UsuarioId,
+                      (publicacao, usuario) => new PublicacaoCompleta
+                      {
+                          PublicacaoId = publicacao.PublicacaoId,
+                          PublicacaoTitulo = publicacao.PublicacaoTitulo,
+                          PublicacaoMidia = publicacao.PublicacaoMidia,
+                          PublicacaoDescricao = publicacao.PublicacaoDescricao,
+                          BairroId = publicacao.BairroId,
+                          Usuario = new UsuarioResposta
+                          {
+                              UsuarioId = usuario.UsuarioId,
+                              UsuarioNome = usuario.UsuarioNome,
+                              UsuarioSobrenome = usuario.UsuarioSobrenome,
+                              UsuarioApelido = usuario.UsuarioApelido,
+                              UsuarioFoto = usuario.UsuarioFoto
+                          }
+                      }).ToListAsync();
+
+            return publicacoes;
+        }
+
+        public async Task<PublicacaoCompleta> GetPublicacao(int id)
+        {
+            PublicacaoCompleta publicacao = await _dbContext.Publicacao
+                .Join(_dbContext.Usuario,
+                      publicacao => publicacao.UsuarioId,
+                      usuario => usuario.UsuarioId,
+                      (publicacao, usuario) => new PublicacaoCompleta
+                      {
+                          PublicacaoId = publicacao.PublicacaoId,
+                          PublicacaoTitulo = publicacao.PublicacaoTitulo,
+                          PublicacaoMidia = publicacao.PublicacaoMidia,
+                          PublicacaoDescricao = publicacao.PublicacaoDescricao,
+                          BairroId = publicacao.BairroId,
+                          Usuario = new UsuarioResposta
+                          {
+                              UsuarioId = usuario.UsuarioId,
+                              UsuarioNome = usuario.UsuarioNome,
+                              UsuarioSobrenome = usuario.UsuarioSobrenome,
+                              UsuarioApelido = usuario.UsuarioApelido,
+                              UsuarioFoto = usuario.UsuarioFoto
+                          }
+                      }).FirstOrDefaultAsync(x => x.PublicacaoId == id);
+
+            return publicacao;
         }
 
         public async Task<PublicacoesModel> GetById(int id)
@@ -44,6 +91,7 @@ namespace ComuniQApi.Repositorios
                 publicacoes.PublicacaoMidia = publicacao.PublicacaoMidia;
                 publicacoes.PublicacaoDescricao = publicacao.PublicacaoDescricao;
                 publicacoes.BairroId = publicacao.BairroId;
+                publicacoes.UsuarioId= publicacao.UsuarioId;
                 _dbContext.Publicacao.Update(publicacoes);
                 await _dbContext.SaveChangesAsync();
             }

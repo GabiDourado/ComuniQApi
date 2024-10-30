@@ -4,7 +4,9 @@ namespace ComuniQApi.Repositorios.Interfaces
 {
     public interface IPublicacoesRepositorio
     {
-        Task<List<PublicacoesModel>> GetAll();
+        Task<List<PublicacaoCompleta>> GetAll();
+
+        Task<PublicacaoCompleta> GetPublicacao(int id);
 
         Task<PublicacoesModel> GetById(int id);
 

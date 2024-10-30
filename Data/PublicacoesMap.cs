@@ -13,6 +13,7 @@ namespace ComuniQApi.Data
             builder.Property(x => x.PublicacaoMidia);
             builder.Property(x => x.PublicacaoDescricao).IsRequired().HasMaxLength(255);
             builder.Property(x => x.BairroId).IsRequired().HasMaxLength(255);
+            builder.Property(x => x.UsuarioId).IsRequired();
         }
     }
 }

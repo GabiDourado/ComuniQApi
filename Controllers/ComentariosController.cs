@@ -12,15 +12,15 @@ namespace ComuniQApi.Controllers
             _comentariosRepositorio = comentariosRepositorio;
         }
         [HttpGet("GetAllComentarios")]
-        public async Task<ActionResult<List<ComentariosModel>>> GetAllComentarios()
+        public async Task<ActionResult<List<ComentarioCompleto>>> GetAllComentarios()
         {
-            List<ComentariosModel> comentarios = await _comentariosRepositorio.GetAll();
+            List<ComentarioCompleto> comentarios = await _comentariosRepositorio.GetAll();
             return Ok(comentarios);
         }
         [HttpGet("GetComentarioId/{id}")]
-        public async Task<ActionResult<ComentariosModel>> GetComentarioId(int id)
+        public async Task<ActionResult<ComentarioCompleto>> GetComentario(int id)
         {
-            ComentariosModel comentario = await _comentariosRepositorio.GetById(id);
+            ComentarioCompleto comentario = await _comentariosRepositorio.GetComentario(id);
             return Ok(comentario);
         }
         [HttpPost("InsertComentario")]

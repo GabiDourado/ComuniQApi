@@ -1,6 +1,6 @@
 ﻿namespace ComuniQApi.Models
 {
-    public class PublicacoesModel
+    public class PublicacaoCompleta
     {
         public int PublicacaoId { get; set; }
 
@@ -12,9 +12,9 @@
 
         public int BairroId { get; set; }
 
-        public int UsuarioId { get; set; }
+        public UsuarioResposta Usuario { get; set; }
 
-        public static implicit operator List<object>(PublicacoesModel v)
+        public static implicit operator List<object>(PublicacaoCompleta? v)
         {
             throw new NotImplementedException();
         }

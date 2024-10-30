@@ -16,16 +16,16 @@ namespace ComuniQApi.Controllers
         }
 
         [HttpGet("GetAllPublicacoes")]
-        public async Task<ActionResult<List<PublicacoesModel>>> GetAllPublicacoes()
+        public async Task<ActionResult<List<PublicacaoCompleta>>> GetAllPublicacoes()
         {
-            List<PublicacoesModel> publicacoes = await _publicacoesRepositorio.GetAll();
+            List<PublicacaoCompleta> publicacoes = await _publicacoesRepositorio.GetAll();
             return Ok(publicacoes);
         }
 
         [HttpGet("GetPublicacaoId/{id}")]
-        public async Task<ActionResult<PublicacoesModel>> GetPublicacaoId(int id)
+        public async Task<ActionResult<PublicacaoCompleta>> GetPublicacao(int id)
         {
-            PublicacoesModel publicacao = await _publicacoesRepositorio.GetById(id);
+            PublicacaoCompleta publicacao = await _publicacoesRepositorio.GetPublicacao(id);
             return Ok(publicacao);
         }
 

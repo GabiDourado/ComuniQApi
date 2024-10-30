@@ -4,7 +4,9 @@ namespace ComuniQApi.Repositorios.Interfaces
 {
     public interface ICampanhasRepositorio
     {
-        Task<List<CampanhasModel>> GetAll();
+        Task<List<CampanhaCompleta>> GetAll();
+
+        Task<CampanhaCompleta> GetCampanha(int id);
 
         Task<CampanhasModel> GetById(int id);
 

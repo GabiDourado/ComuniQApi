@@ -1,6 +1,6 @@
 ﻿namespace ComuniQApi.Models
 {
-    public class CampanhasModel
+    public class CampanhaCompleta
     {
         public int CampanhaId { get; set; }
 
@@ -14,11 +14,6 @@
 
         public int CidadeId { get; set; }
 
-        public int UsuarioId { get; set; }
-
-        public static implicit operator List<object>(CampanhasModel v)
-        {
-            throw new NotImplementedException();
-        }
+        public UsuarioResposta Usuario { get; set; }
     }
 }

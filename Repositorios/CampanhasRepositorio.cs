@@ -14,9 +14,55 @@ namespace ComuniQApi.Repositorios
             _dbContext = dbContext;
         }
 
-        public async Task<List<CampanhasModel>> GetAll()
+        public async Task<List<CampanhaCompleta>> GetAll()
         {
-            return await _dbContext.Campanha.ToListAsync();
+            List<CampanhaCompleta> campanhas = await _dbContext.Campanha
+                .Join(_dbContext.Usuario,
+                      campanha => campanha.UsuarioId,
+                      usuario => usuario.UsuarioId,
+                      (campanha, usuario) => new CampanhaCompleta
+                      {
+                          CampanhaId = campanha.CampanhaId,
+                          CampanhaDescricao = campanha.CampanhaDescricao,
+                          CampanhaTitulo = campanha.CampanhaTitulo,
+                          CampanhaMidia = campanha.CampanhaMidia,
+                          TipoCampanhaId = campanha.TipoCampanhaId,
+                          Usuario = new UsuarioResposta
+                          {
+                              UsuarioId = usuario.UsuarioId,
+                              UsuarioNome = usuario.UsuarioNome,
+                              UsuarioSobrenome = usuario.UsuarioSobrenome,
+                              UsuarioApelido = usuario.UsuarioApelido,
+                              UsuarioFoto = usuario.UsuarioFoto
+                          }
+                      }).ToListAsync();
+
+            return campanhas;
+        }
+        public async Task<CampanhaCompleta> GetCampanha(int id)
+        {
+            CampanhaCompleta campanha = await _dbContext.Campanha
+                .Join(_dbContext.Usuario,
+                      campanha => campanha.UsuarioId,
+                      usuario => usuario.UsuarioId,
+                      (campanha, usuario) => new CampanhaCompleta
+                      {
+                          CampanhaId = campanha.CampanhaId,
+                          CampanhaDescricao = campanha.CampanhaDescricao,
+                          CampanhaTitulo = campanha.CampanhaTitulo,
+                          CampanhaMidia = campanha.CampanhaMidia,
+                          TipoCampanhaId = campanha.TipoCampanhaId,
+                          Usuario = new UsuarioResposta
+                          {
+                              UsuarioId = usuario.UsuarioId,
+                              UsuarioNome = usuario.UsuarioNome,
+                              UsuarioSobrenome = usuario.UsuarioSobrenome,
+                              UsuarioApelido = usuario.UsuarioApelido,
+                              UsuarioFoto = usuario.UsuarioFoto
+                          }
+                      }).FirstOrDefaultAsync(x => x.CampanhaId == id);
+
+            return campanha;
         }
         public async Task<CampanhasModel> GetById(int id)
         {
@@ -44,6 +90,7 @@ namespace ComuniQApi.Repositorios
                 campanhas.CampanhaDescricao = campanha.CampanhaDescricao;
                 campanhas.TipoCampanhaId = campanha.TipoCampanhaId;
                 campanhas.CidadeId = campanha.CidadeId;
+                campanhas.UsuarioId= campanha.UsuarioId;
                 _dbContext.Campanha.Update(campanhas);
                 await _dbContext.SaveChangesAsync();
             }
