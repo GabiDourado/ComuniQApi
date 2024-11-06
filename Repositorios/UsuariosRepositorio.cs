@@ -26,9 +26,25 @@ namespace ComuniQApi.Repositorios
 
         public async Task<UsuariosModel> InsertUsuario(UsuariosModel usuario)
         {
-            await _dbContext.Usuario.AddAsync(usuario);
-            await _dbContext.SaveChangesAsync();
-            return usuario;
+
+
+            UsuariosModel user = await _dbContext.Usuario.FirstOrDefaultAsync(x => x.UsuarioEmail == usuario.UsuarioEmail);
+
+            if (user == null)
+            {
+                await _dbContext.Usuario.AddAsync(usuario);
+                await _dbContext.SaveChangesAsync();
+                return usuario;
+            }
+            else
+            {
+                return null;
+
+            }
+
+
+
+
         }
         public async Task<UsuariosModel> Login(string email, string password)
         {
@@ -77,12 +93,12 @@ namespace ComuniQApi.Repositorios
         }
 
         //tenho que pegar o id a partir do email colocado pelo usuário, para alterar a senha.
-        public async Task<UsuariosModel> RecuperarSenha(string email, string novaSenha)
+        public async Task<UsuariosModel> RecuperarSenha(string email, string novaSenha, string cpf)
         {
-            UsuariosModel usuarios = await _dbContext.Usuario.FirstOrDefaultAsync(x => x.UsuarioEmail == email);
+            UsuariosModel usuarios = await _dbContext.Usuario.FirstOrDefaultAsync(x => x.UsuarioEmail == email && x.UsuarioCPF == cpf);
             if (usuarios == null)
             {
-                throw new Exception("Não encontrado.");
+                throw new Exception("Email não encontrado.");
             }
             else
             {
