@@ -29,8 +29,16 @@ namespace ComuniQApi.Controllers
         [HttpPost("InsertUsuario")]
         public async Task<ActionResult<UsuariosModel>> InsertUsuario([FromBody] UsuariosModel usuarioModel)
         {
-            UsuariosModel usuario = await _usuariosRepositorio.InsertUsuario(usuarioModel);
-            return Ok(usuario);
+            if(usuarioModel != null)
+            {
+                UsuariosModel usuario = await _usuariosRepositorio.InsertUsuario(usuarioModel);
+                return Ok(usuario);
+            }
+            else
+            {
+                return BadRequest("Email já em uso, por favor tente novamente com outro email");
+            }
+            
         }
         [HttpPost("Login")]
         public async Task<ActionResult<UsuariosModel>> Login([FromBody] UsuariosModel usuarioModel)
@@ -50,9 +58,9 @@ namespace ComuniQApi.Controllers
             return Ok(usuario);
         }
         [HttpPost("RecuperarSenha")]
-        public async Task<ActionResult<UsuariosModel>> RecuperarSenha(string email, string novaSenha)
+        public async Task<ActionResult<UsuariosModel>> RecuperarSenha(string email, string novaSenha, string cpf)
         {            
-            UsuariosModel usuario = await _usuariosRepositorio.RecuperarSenha(email, novaSenha);
+            UsuariosModel usuario = await _usuariosRepositorio.RecuperarSenha(email, novaSenha, cpf);
             return Ok(usuario);
         }
         [HttpDelete("DeleteUsuario/{id:int}")]
