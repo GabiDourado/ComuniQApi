@@ -6,6 +6,8 @@ namespace ComuniQApi.Repositorios.Interfaces
     {
         Task<List<ComentarioCompleto>> GetAll();
 
+        Task<List<ComentarioCompleto>> GetComentariosByPost( int id );
+
         Task<ComentarioCompleto> GetComentario(int id);
 
         Task<ComentariosModel> GetById(int id);

@@ -37,6 +37,31 @@ namespace ComuniQApi.Repositorios
             return comentarios;
         }
 
+        public async Task<List<ComentarioCompleto>> GetComentariosByPost(int id )
+        {
+            List<ComentarioCompleto> comentarios = await _dbContext.Comentario
+                .Where( c => c.PublicacaoId == id )
+                .Join(_dbContext.Usuario,
+                      comentario => comentario.UsuarioId,
+                      usuario => usuario.UsuarioId,
+                      (comentario, usuario) => new ComentarioCompleto
+                      {
+                          ComentarioId = comentario.ComentarioId,
+                          ComentarioTexto = comentario.ComentarioTexto,
+                          PublicacaoId = comentario.PublicacaoId,
+                          Usuario = new UsuarioResposta
+                          {
+                              UsuarioId = usuario.UsuarioId,
+                              UsuarioNome = usuario.UsuarioNome,
+                              UsuarioSobrenome = usuario.UsuarioSobrenome,
+                              UsuarioApelido = usuario.UsuarioApelido,
+                              UsuarioFoto = usuario.UsuarioFoto
+                          }
+                      }).ToListAsync();
+
+            return comentarios;
+        }
+
         public async Task<ComentarioCompleto> GetComentario(int id)
         {
             ComentarioCompleto comentario =  await _dbContext.Comentario

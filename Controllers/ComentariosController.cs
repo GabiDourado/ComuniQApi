@@ -17,6 +17,12 @@ namespace ComuniQApi.Controllers
             List<ComentarioCompleto> comentarios = await _comentariosRepositorio.GetAll();
             return Ok(comentarios);
         }
+        [HttpGet("GetComentariosByPost")]
+        public async Task<ActionResult<List<ComentarioCompleto>>> GetComentariosByPost( int id )
+        {
+            List<ComentarioCompleto> comentarios = await _comentariosRepositorio.GetComentariosByPost( id );
+            return Ok(comentarios);
+        }
         [HttpGet("GetComentarioId/{id}")]
         public async Task<ActionResult<ComentarioCompleto>> GetComentario(int id)
         {
